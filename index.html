@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANGEST OÜ – raskeehitustehnika remont ja müük</title>
+<meta name="description" content="ANGEST OÜ remondib, taastab ja müüb ehitus-, karjääri- ja kaevandustehnikat ning tarnib varuosi. Registrikood 14972830.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yellow:#FFCD11; --graphite:#404040; --ink:#1e1e1e; --red:#FF004E; --navy:#0c1626;
+    --bg:#ffffff; --soft:#f4f4f2; --text:#222; --muted:#5f5f5f; --line:#e3e3df;
+    --max:1180px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.6;font-size:17px}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  /* language switching */
+  html[lang="et"] [lang="en"]{display:none}
+  html[lang="en"] [lang="et"]{display:none}
+
+  /* header (from the brand mockup: yellow bar framed in graphite) */
+  header{position:sticky;top:0;z-index:20;background:var(--graphite);padding:6px 0}
+  .bar{background:var(--yellow)}
+  .bar .wrap{display:flex;align-items:center;gap:28px;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .brand .mark{height:44px;width:auto}
+  .brand .word{height:22px;width:auto;margin-top:6px}
+  nav{display:flex;gap:26px;margin-left:auto}
+  nav a{text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+  nav a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+  .lang{display:flex;border:2px solid var(--ink);border-radius:4px;overflow:hidden}
+  .lang button{font:inherit;font-weight:700;font-size:13px;padding:5px 9px;border:0;background:transparent;color:var(--ink);cursor:pointer}
+  .lang button.on{background:var(--ink);color:var(--yellow)}
+  .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{display:block;width:24px;height:3px;background:var(--ink);margin:4px 0}
+
+  /* hero */
+  .hero{position:relative;min-height:78vh;display:flex;align-items:center;color:#fff;
+    background:linear-gradient(90deg,rgba(6,12,22,.9) 0%,rgba(8,18,34,.6) 55%,rgba(8,18,34,.2) 100%),url(img/hero.jpg) center/cover no-repeat}
+  .hero .wrap{width:100%;padding-top:72px;padding-bottom:72px}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--yellow);margin-bottom:18px}
+  .hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.08;margin:0 0 22px;max-width:15ch;font-weight:800}
+  .hero p{font-size:clamp(17px,1.6vw,20px);max-width:56ch;color:#e9e9e9;margin:0 0 34px}
+  .btn{display:inline-block;background:var(--yellow);color:var(--ink);font-weight:700;text-decoration:none;padding:15px 28px;border-radius:4px;letter-spacing:.02em}
+  .btn:hover{background:#ffd93f}
+  .btn.ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.7);margin-left:10px}
+
+  /* facts strip */
+  .facts{background:var(--navy);color:#fff}
+  .facts .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+  .fact{padding:32px 28px;border-left:1px solid #22344d}
+  .fact:first-child{border-left:0;padding-left:0}
+  .fact b{display:block;font-size:19px;color:var(--yellow);font-weight:800;line-height:1.3;margin-bottom:8px}
+  .fact > span{font-size:15px;color:#d4d4d4;line-height:1.55}
+
+  section{padding:96px 0}
+  .sec-head{max-width:720px;margin-bottom:48px}
+  .sec-head .eyebrow{color:var(--red)}
+  h2{font-size:clamp(28px,3.4vw,40px);line-height:1.15;margin:0 0 16px;font-weight:800;color:var(--ink)}
+  .lead{color:var(--muted);font-size:18px;margin:0}
+
+  /* about */
+  #about{background:var(--soft)}
+  .about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+  .about img{border-radius:6px;aspect-ratio:4/3;object-fit:cover;width:100%}
+  .about p{margin:0 0 16px}
+
+  /* products */
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .card img{aspect-ratio:16/9;object-fit:cover;width:100%}
+  .card .body{padding:26px 28px 30px;border-top:4px solid var(--yellow)}
+  .card h3{margin:0 0 10px;font-size:22px;color:var(--ink)}
+  .card p{margin:0;color:var(--muted)}
+
+  /* services */
+  #services{background:var(--soft)}
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .svc .item{background:#fff;border-radius:6px;overflow:hidden;border:1px solid var(--line)}
+  .svc img{aspect-ratio:4/3;object-fit:cover;width:100%;filter:saturate(.85)}
+  .svc .body{padding:20px 22px 26px}
+  .svc h3{font-size:18px;margin:0 0 8px;color:var(--ink)}
+  .svc p{font-size:15px;margin:0;color:var(--muted)}
+  .num{display:inline-block;font-weight:800;color:var(--red);font-size:13px;letter-spacing:.1em;margin-bottom:6px}
+
+  /* contact */
+  #contact{background:linear-gradient(rgba(8,16,30,.86),rgba(8,16,30,.86)),url(img/building.jpg) center/cover;color:#fff}
+  #contact h2{color:#fff}
+  #contact .lead{color:#d6d6d6}
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:12px 28px}
+  dt{color:#a9a9a9;font-size:14px;padding-top:2px}
+  dd{margin:0;font-weight:600}
+  dd a{color:var(--yellow);text-decoration:none}
+  dd a:hover{text-decoration:underline}
+  .todo{color:#ff7b9f;font-weight:500}
+  .map{border:0;width:100%;height:360px;border-radius:6px;filter:grayscale(.3)}
+  .verify{margin-top:28px;font-size:15px;color:#cfcfcf}
+  .verify a{color:var(--yellow)}
+
+  footer{background:#070d17;color:#8f9bb0;font-size:14px;padding:26px 0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+  @media (max-width:980px){
+    .svc{grid-template-columns:1fr 1fr}
+    .facts .wrap{grid-template-columns:1fr}
+    .fact{border-left:0;padding:22px 0;border-top:1px solid #333}
+    .fact:first-child{border-top:0}
+  }
+  @media (max-width:820px){
+    nav{display:none;position:absolute;top:76px;left:0;right:0;background:var(--yellow);flex-direction:column;gap:0;padding:8px 24px 18px;border-bottom:6px solid var(--graphite)}
+    nav.open{display:flex}
+    nav a{padding:12px 0;border-bottom:1px solid rgba(0,0,0,.12)}
+    .burger{display:block}
+    .lang{margin-left:8px}
+    .about,.cards,.contact{grid-template-columns:1fr}
+    section{padding:64px 0}
+    .btn.ghost{margin:12px 0 0}
+  }
+  @media (max-width:520px){
+    .wrap{padding:0 16px}
+    .svc{grid-template-columns:1fr}
+    .brand .word{display:none}
+    dl{grid-template-columns:1fr;gap:2px}
+    dd{margin-bottom:12px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="ANGEST">
+        <img class="mark" src="img/mark.png" alt="">
+        <img class="word" src="img/wordmark-red.png" alt="angest">
+      </a>
+      <nav id="nav">
+        <a href="#top"><span lang="et">Avaleht</span><span lang="en">Home</span></a>
+        <a href="#products"><span lang="et">Tooted</span><span lang="en">Products</span></a>
+        <a href="#services"><span lang="et">Teenused</span><span lang="en">Services</span></a>
+        <a href="#contact"><span lang="et">Kontakt</span><span lang="en">Contact</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="et">EE</button>
+        <button type="button" data-set="en">EN</button>
+      </div>
+      <button class="burger" type="button" aria-label="Menu" onclick="document.getElementById('nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <span class="eyebrow"><span lang="et">Ehitus-, karjääri- ja kaevandustehnika</span><span lang="en">Construction, quarry &amp; mining equipment</span></span>
+      <h1><span lang="et">Raskeehitustehnika remont ja taastamine</span><span lang="en">Heavy equipment repair and refurbishment</span></h1>
+      <p><span lang="et">ANGEST OÜ remondib, taastab ja müüb ehitus-, karjääri- ja kaevandustehnikat, tarnib varuosi ning projekteerib raskemasinatele lisaseadmeid ja rakiseid.</span><span lang="en">ANGEST OÜ repairs, refurbishes and sells construction, quarry and mining equipment, supplies spare parts and designs attachments and tooling for heavy machinery.</span></p>
+      <a class="btn" href="#contact"><span lang="et">Võta ühendust</span><span lang="en">Contact us</span></a>
+      <a class="btn ghost" href="#services"><span lang="et">Meie teenused</span><span lang="en">Our services</span></a>
+    </div>
+  </section>
+
+  <div class="facts">
+    <div class="wrap">
+      <div class="fact"><b><span lang="et">Raskeehitustehnika remont</span><span lang="en">Heavy equipment repair</span></b><span lang="et">Ekskavaatorite, buldooserite, laadurite ja kaevandustehnika remont ning kapitaalremont.</span><span lang="en">Repair and full rebuilds of excavators, bulldozers, loaders and mining machines.</span></div>
+      <div class="fact"><b><span lang="et">Oma töökoda</span><span lang="en">Our own workshop</span></b><span lang="et">35-tonnine sildkraana, avar tootmishall ja suured väravad suurte masinate jaoks.</span><span lang="en">A 35-tonne overhead crane, a spacious hall and large gates for big machines.</span></div>
+      <div class="fact"><b><span lang="et">Ülemaailmne haare</span><span lang="en">Global reach</span></b><span lang="et">Partnerid Euroopas, USA-s, Kanadas, Lähis-Idas ja Kagu-Aasias.</span><span lang="en">Partners in Europe, the USA, Canada, the Middle East and Southeast Asia.</span></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <div class="sec-head" style="margin-bottom:24px">
+          <span class="eyebrow"><span lang="et">Ettevõttest</span><span lang="en">About us</span></span>
+          <h2><span lang="et">Oma töökoda Tabasalus, partnerid üle maailma</span><span lang="en">Our own workshop in Tabasalu, partners worldwide</span></h2>
+        </div>
+        <p><span lang="et">Ettevõte on asutatud 2020. aastal Eestis. Meil on oma töökoda Tabasalus Tallinna lähedal ning partnerid Euroopas, Põhja-Ameerikas, Lähis-Idas ja Kagu-Aasias.</span><span lang="en">Founded in Estonia in 2020, we run our own workshop in Tabasalu near Tallinn and work with partners across Europe, North America, the Middle East and Southeast Asia.</span></p>
+        <p><span lang="et">Meie kliendid on tehnika omanikud, edasimüüjad ja rendiettevõtted.</span><span lang="en">Our clients are equipment owners, dealers and rental companies.</span></p>
+      </div>
+      <img src="img/about.jpg" alt="ANGEST workshop, Tabasalu" loading="lazy">
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span lang="et">Tooted</span><span lang="en">Products</span></span>
+        <h2><span lang="et">Tehnika ja varuosad</span><span lang="en">Equipment and spare parts</span></h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <img src="img/equipment.jpg" alt="" loading="lazy">
+          <div class="body">
+            <h3><span lang="et">Kasutatud ja uus raskeehitustehnika</span><span lang="en">Used and new heavy equipment</span></h3>
+            <p><b style="color:var(--ink)"><span lang="et">Uus tehnika.</span><span lang="en">New equipment.</span></b> <span lang="et">Juhtivate tootjate buldooserid, ekskavaatorid ja frontaallaadurid, sageli soodsama hinnaga kui ametlikelt edasimüüjatelt.</span><span lang="en">Bulldozers, excavators and wheel loaders from leading manufacturers, often at better prices than through official dealers.</span></p>
+            <p style="margin-top:12px"><b style="color:var(--ink)"><span lang="et">Kasutatud tehnika.</span><span lang="en">Used equipment.</span></b> <span lang="et">Ostame usaldusväärsetelt tarnijatelt, kontrollime hoolikalt, teeme põhjaliku hoolduse ning vajadusel taastame originaalvaruosadega.</span><span lang="en">Bought from trusted suppliers, carefully inspected, thoroughly serviced and, where needed, restored with original spare parts.</span></p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="img/parts.jpg" alt="" loading="lazy">
+          <div class="body">
+            <h3><span lang="et">Varuosad</span><span lang="en">Spare parts</span></h3>
+            <p><span lang="et">Uued originaalvaruosad ja kvaliteetsed asendusosad ning kontrollitud ja remonditud komponendid. Kui originaalosade tarneaeg on 50–120 päeva, valmistame valitud osi pöördprojekteerimise teel.</span><span lang="en">New OEM and quality aftermarket parts, plus inspected and repaired components. When OEM lead times run 50 to 120 days, we can reverse-engineer and manufacture selected parts.</span></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow"><span lang="et">Teenused</span><span lang="en">Services</span></span>
+        <h2><span lang="et">Ülevaatusest kuni tarnimiseni</span><span lang="en">From inspection to delivery</span></h2>
+      </div>
+      <div class="svc">
+        <div class="item"><img src="img/repair.jpg" alt="" loading="lazy"><div class="body"><span class="num">01</span>
+          <h3><span lang="et">Remont ja taastamine</span><span lang="en">Repair and refurbishment</span></h3>
+          <p><span lang="et">Suurte ekskavaatorite, buldooserite ja metsamasinate kapitaalremont oma töökojas 35-tonnise sildkraanaga ning usaldusväärsete partnerite võrgustik suuremate tööde jaoks.</span><span lang="en">Full rebuilds of large excavators, bulldozers and forestry machines in our own workshop with a 35-tonne overhead crane, plus a network of trusted partners for larger scopes.</span></p></div></div>
+        <div class="item"><img src="img/engineering.jpg" alt="" loading="lazy"><div class="body"><span class="num">02</span>
+          <h3><span lang="et">Insenertöö ja projekteerimine</span><span lang="en">Engineering and design</span></h3>
+          <p><span lang="et">Raskeehitustehnika lisaseadmete, sõlmede ja rakiste projekteerimine kaasaegsete projekteerimis-, simulatsiooni- ja verifitseerimisvahenditega.</span><span lang="en">Attachments, units and tooling for heavy equipment, developed with modern design, simulation and verification tools.</span></p></div></div>
+        <div class="item"><img src="img/reverse.jpg" alt="" loading="lazy"><div class="body"><span class="num">03</span>
+          <h3><span lang="et">Pöördprojekteerimine</span><span lang="en">Reverse engineering</span></h3>
+          <p><span lang="et">Asendusosade valmistamine joonise järgi, kui originaalosad on aeglased või kättesaamatud.</span><span lang="en">Replacement components made to drawing when original parts are slow or unavailable.</span></p></div></div>
+        <div class="item"><img src="img/projects.jpg" alt="" loading="lazy"><div class="body"><span class="num">04</span>
+          <h3><span lang="et">Projektijuhtimine</span><span lang="en">Project management</span></h3>
+          <p><span lang="et">Üks kontaktisik alates tehnika ülevaatusest ja varuosade hankimisest kuni valmis masina tarnimiseni.</span><span lang="en">One contact from inspection and sourcing of parts to delivery of the finished machine.</span></p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--yellow)"><span lang="et">Kontakt</span><span lang="en">Contact</span></span>
+        <h2><span lang="et">Võtke meiega ühendust</span><span lang="en">Get in touch</span></h2>
+        <p class="lead"><span lang="et">Saatke meile masina mudel ja oma vajadus.</span><span lang="en">Send us the machine model and what you need.</span></p>
+      </div>
+      <div class="contact">
+        <div>
+          <dl>
+            <dt><span lang="et">Ettevõte</span><span lang="en">Company</span></dt><dd>ANGEST OÜ</dd>
+            <dt><span lang="et">Registrikood</span><span lang="en">Registry code</span></dt><dd>14972830</dd>
+            <dt><span lang="et">KMKR nr</span><span lang="en">VAT number</span></dt><dd>EE102466746</dd>
+            <dt><span lang="et">Töökoda</span><span lang="en">Workshop</span></dt><dd>Ranna tee 4, Tabasalu 76901,<br>Harjumaa, Estonia</dd>
+            <dt><span lang="et">Telefon</span><span lang="en">Phone</span></dt><dd><a href="tel:+3725169944">+372 516 9944</a></dd>
+            <dt>WhatsApp</dt><dd><a href="https://wa.me/3725169944" target="_blank" rel="noopener">+372 516 9944</a></dd>
+            <dt><span lang="et">E-post</span><span lang="en">E-mail</span></dt><dd><a href="mailto:angest.info@angest.ee">angest.info@angest.ee</a></dd>
+          </dl>
+          <p class="verify"><span lang="et">Ettevõtte andmed on kontrollitavad</span><span lang="en">Company details can be verified in the</span> <a href="https://ariregister.rik.ee/est/company/14972830" target="_blank" rel="noopener"><span lang="et">e-äriregistris</span><span lang="en">Estonian e-Business Register</span></a>.</p>
+        </div>
+        <iframe class="map" title="Map" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=24.535%2C59.418%2C24.575%2C59.434&amp;layer=mapnik&amp;marker=59.4262%2C24.5551"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 ANGEST OÜ · <span lang="et">registrikood</span><span lang="en">reg. code</span> 14972830</span>
+    <span>Ranna tee 4, Tabasalu 76901, Estonia</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, btns=document.querySelectorAll('.lang button');
+  function set(l){
+    root.lang=l;
+    btns.forEach(function(b){b.classList.toggle('on',b.dataset.set===l)});
+    try{localStorage.setItem('lang',l)}catch(e){}
+  }
+  var q=new URLSearchParams(location.search).get('lang'), saved=null;
+  try{saved=localStorage.getItem('lang')}catch(e){}
+  var start=q||saved||((navigator.language||'').slice(0,2)==='et'?'et':'en');
+  set(start==='et'?'et':'en');
+  btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('nav').classList.remove('open')})});
+})();
+</script>
+</body>
+</html>
